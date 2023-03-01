@@ -7,10 +7,11 @@ using namespace std;
 
 template <class T>
 class YFVector {
+private:
     T* arr;
     size_t _capacity{};
     size_t _size{};
-    void copyInternalData(const YFVector&);                   // to copy internal data (can't be used by the client)
+    void copyInternalData(const YFVector&);                   // to copy internal data in constructors
 
 public:
     // Constructors and big 4
