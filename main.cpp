@@ -112,5 +112,24 @@ int main() {
     list.clear();
     list.print();
 
+
+    /*
+     *
+    Queue<int> q(5);
+    q.enqueue(1);
+    q.enqueue(2);
+    q.enqueue(3);
+    q.print();  // Output: Queue: 1 2 3
+    q.dequeue();
+    q.print();  // Output: Queue: 2 3
+    cout << q.first() << endl;  // Output: 2
+    cout << q.isEmpty() << endl;  // Output: 0 (false)
+    cout << q.queueSize() << endl;  // Output: 2
+    q.clear();
+    q.print();  // Output: Queue is empty!
+     *
+     * */
+
+
     return 0;
 }
