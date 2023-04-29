@@ -2,11 +2,12 @@
 #include "ArrayList.cpp"
 #include "SingleLinkedList.cpp"
 #include "DoublyLinkedList.cpp"
+#include "Stack.cpp"
 #include <iostream>
 using namespace std;
 
-
-int main() {
+int main()
+{
     /*ArrayList<int> l1;
     l1.insert(5);
     l1.insert(5);
@@ -62,56 +63,55 @@ int main() {
     list.print();
 */
 
-    DoublyLinkedList<int> list;
-    list.insertAtHead(90);
-    list.insertAtHead(90);
-    list.print();
-    cout << endl;
-    list.insertAtTail(40);
-    list.insertAtTail(30);
-    list.print();
-    cout << endl;
-    list.insertAtTail(30);
-    list.insertAtTail(30);
-    list.print();
-    cout << endl;
-    list.insertAt(50, 2);
-    list.print();
-    cout << endl;
-    list.swap(1, 5);
-    cout << "After swapping 0, 7:\n";
-    list.print();
-    cout << endl;
-    cout << "After removing at head:\n";
-    list.removeAtHead();
-    list.print();
-    cout << endl;
-    cout << "After Removing at tail:\n";
-    list.removeAtTail();
-    list.print();
-    cout << endl;
-    cout << "after removing at 3:\n";
-    list.removeAt(3);
-    list.print();
-    cout << endl;
-    cout << "List size: " << list.listSize() << endl;
-    cout << endl;
-    cout << "item at index 2: " << list.retrieveAt(2) << endl;
-    list.replaceAt(100, 2);
-    cout << "item at 2 is replaced, new at 2: " << list.retrieveAt(2) << endl;
-    cout << "is 200 Exits? " << list.isExist(200) << endl;
-    cout << "is item at index 1 = 50? " << list.isItemAtEqual(50, 1) << endl;
-    cout << "printing the list...\n";
-    list.print();
-    cout << endl;
-    list.reverse();
-    cout << "printing after reverse:\n";
-    list.print();
-    cout << endl;
-    cout << "printing after clearing:\n";
-    list.clear();
-    list.print();
-
+    // DoublyLinkedList<int> list;
+    // list.insertAtHead(90);
+    // list.insertAtHead(90);
+    // list.print();
+    // cout << endl;
+    // list.insertAtTail(40);
+    // list.insertAtTail(30);
+    // list.print();
+    // cout << endl;
+    // list.insertAtTail(30);
+    // list.insertAtTail(30);
+    // list.print();
+    // cout << endl;
+    // list.insertAt(50, 2);
+    // list.print();
+    // cout << endl;
+    // list.swap(1, 5);
+    // cout << "After swapping 0, 7:\n";
+    // list.print();
+    // cout << endl;
+    // cout << "After removing at head:\n";
+    // list.removeAtHead();
+    // list.print();
+    // cout << endl;
+    // cout << "After Removing at tail:\n";
+    // list.removeAtTail();
+    // list.print();
+    // cout << endl;
+    // cout << "after removing at 3:\n";
+    // list.removeAt(3);
+    // list.print();
+    // cout << endl;
+    // cout << "List size: " << list.listSize() << endl;
+    // cout << endl;
+    // cout << "item at index 2: " << list.retrieveAt(2) << endl;
+    // list.replaceAt(100, 2);
+    // cout << "item at 2 is replaced, new at 2: " << list.retrieveAt(2) << endl;
+    // cout << "is 200 Exits? " << list.isExist(200) << endl;
+    // cout << "is item at index 1 = 50? " << list.isItemAtEqual(50, 1) << endl;
+    // cout << "printing the list...\n";
+    // list.print();
+    // cout << endl;
+    // list.reverse();
+    // cout << "printing after reverse:\n";
+    // list.print();
+    // cout << endl;
+    // cout << "printing after clearing:\n";
+    // list.clear();
+    // list.print();
 
     /*
      *
@@ -130,6 +130,28 @@ int main() {
      *
      * */
 
-
+    Stack<int> stack;
+    stack.push(40);
+    stack.push(30);
+    stack.push(60);
+    stack.push(50);
+    stack.push(70);
+    cout << "stack: ";
+    stack.print();
+    cout << endl;
+    cout << "the top of the stack: " << stack.top();
+    cout << endl;
+    cout << "check if stack is empty: " << stack.isEmpty() << endl;
+    cout << "after poping the first element: ";
+    stack.pop();
+    stack.print();
+    cout << endl;
+    cout << "the size of the stack: " << stack.stackSize() << endl;
+    cout << "the element on the top: " << stack.top() << endl;
+    cout << "after clearing the stack: ";
+    stack.clear();
+    stack.print();
+    cout << endl;
+    cout << "check if stack is empty: " << stack.isEmpty() << endl;
     return 0;
 }
