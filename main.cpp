@@ -5,7 +5,9 @@
 #include "Stack.cpp"
 #include "CircularLinkedList.cpp"
 #include "CombineNodesBetweenZeros.cpp"
+#include "Queue.cpp"
 #include <iostream>
+#include "StackProblem.cpp"
 #include <String.h>
 using namespace std;
 
@@ -263,7 +265,7 @@ int main()
     list.print();
 */
 
-    SingleLinkedList<int> list;
+/*    SingleLinkedList<int> list;
     list.insertAtTail(0);
     list.insertAtTail(1);
     list.insertAtTail(0);
@@ -287,5 +289,63 @@ int main()
     cout << endl;
     SingleLinkedList<int> combined_list = CombineNodesBetweenZeros(list);
     combined_list.print();
+
+//----------------------------------------------Testing Queue Implementiation--------------------------------------------
+
+/*
+    Queue<int> q;
+    q.enqueue(10);
+    q.enqueue(20);
+    q.enqueue(30);
+    q.enqueue(40);
+    q.print(); // should print 10 20 30 40
+    std::cout << "Queue size: " << q.queueSize() << std::endl; // should print 4
+    std::cout << "First element: " << q.first() << std::endl; // should print 10
+    std::cout << "Dequeued element: " << q.dequeue() << std::endl; // should print 10
+    q.print(); // should print 20 30 40
+    std::cout << "Queue size: " << q.queueSize() << std::endl; // should print 3
+    q.clear();
+    std::cout << "Queue size after clear: " << q.queueSize() << std::endl; // should print 0
     return 0;
+  */
+
+    //----------------------------------------------(Problem) Testing Stack Implementiation using Queue--------------------------------------------
+
+
+    /*
+    StackProblem<int> s;
+
+    s.push(10);
+    s.push(20);
+    s.push(30);
+
+    std::cout << s.pop() << std::endl; // should print 30
+    std::cout << s.pop() << std::endl; // should print 20
+    std::cout << s.pop() << std::endl; // should print 10
+
+    std::cout << s.isEmpty() << std::endl; // should print 1 (true)
+
+    s.push(40);
+
+    std::cout << s.isEmpty() << std::endl; // should print 0 (false)
+
+    s.clear();
+
+    std::cout << s.isEmpty() << std::endl; // should print 1 (true)
+
+    return 0;
+*/
+    //----------------------------------------------(Problem) Testing sorting Queue--------------------------------------------
+    Queue<int> q1;
+    q1.enqueue(3);
+    q1.enqueue(15);
+    q1.enqueue(2);
+    q1.enqueue(4);
+
+    cout << "Before sorting:\n";
+    q1.print(); // should print: 3 15 2 4
+    selectionSort(q1);
+
+    cout << "\nAfter sorting:\n";
+    q1.print(); // should print: 2 3 4 15
 }

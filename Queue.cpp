@@ -3,61 +3,72 @@
 //
 
 #include "Queue.h"
-Queue(int size) {
-    arr = new T[size];
-    capacity = size;
-    front = 0;
-    rear = -1;
+#include "SingleLinkedList.h"
+#include "algorithm"
+#include "iostream"
+using namespace std;
+
+template <typename T>
+Queue<T>::Queue() {
+    list = SingleLinkedList<T>();
 }
 
-void enqueue(T element) {
-    if (rear == capacity - 1) {
-        cout << "Queue is full!" << endl;
-        return;
-    }
-    rear++;
-    arr[rear] = element;
+template <typename T>
+void Queue<T>::enqueue(T element) {
+    list.insertAtTail(element);
 }
 
-T dequeue() {
-    if (isEmpty()) {
-        cout << "Queue is empty!" << endl;
-        return T();
-    }
-    T element = arr[front];
-    front++;
+template <typename T>
+T Queue<T>::dequeue() {
+    T element = list.retrieveAt(0);
+    list.removeAtHead();
     return element;
 }
 
-T first() {
-    if (isEmpty()) {
-        cout << "Queue is empty!" << endl;
-        return T();
+template <typename T>
+T Queue<T>::first() const {
+    return list.retrieveAt(0);
+}
+
+template <typename T>
+bool Queue<T>::isEmpty() const {
+    return list.isEmpty();
+}
+
+template <typename T>
+int Queue<T>::queueSize() const {
+    return list.listSize();
+}
+
+template <typename T>
+void Queue<T>::clear() {
+    list.clear();
+}
+
+template <typename T>
+void Queue<T>::print() const {
+    list.print();
+}
+
+template <typename T>
+void selectionSort(Queue<T>& queue) {
+    int size = queue.queueSize();
+    for (int i = 0; i < size - 1; i++) {
+        int minIndex = i;
+        T minValue = queue.dequeue();
+        for (int j = i + 1; j < size; j++) {
+            T current = queue.dequeue();
+            if (current < minValue) {
+                queue.enqueue(minValue);
+                minIndex = j;
+                minValue = current;
+            } else {
+                queue.enqueue(current);
+            }
+        }
+        for (int k = 0; k < minIndex - i; k++) {
+            queue.enqueue(queue.dequeue());
+        }
+        queue.enqueue(minValue);
     }
-    return arr[front];
-}
-
-bool isEmpty() {
-    return (rear < front);
-}
-
-int queueSize() {
-    return (rear - front + 1);
-}
-
-void clear() {
-    front = 0;
-    rear = -1;
-}
-
-void print() {
-    if (isEmpty()) {
-        cout << "Queue is empty!" << endl;
-        return;
-    }
-    cout << "Queue: ";
-    for (int i = front; i <= rear; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
 }
