@@ -4,24 +4,24 @@
 
 #ifndef LINEAR_STRUCTURES_QUEUE_H
 #define LINEAR_STRUCTURES_QUEUE_H
-
-
+#include "SingleLinkedList.h"
+template <typename T>
 class Queue {
 private:
-    T* arr;
-    int front, rear, capacity;
+    SingleLinkedList<T> list;
 
 public:
-    Queue(int size);
+    Queue();
     void enqueue(T element);
     T dequeue();
-    T first();
-    bool isEmpty();
-    int queueSize();
+    T first() const;
+    bool isEmpty() const;
+    int queueSize() const;
     void clear();
-    void print();
+    void print() const;
+    void selectionSort(Queue<T>& q);
+};
 
-    };
 
 
 #endif //LINEAR_STRUCTURES_QUEUE_H

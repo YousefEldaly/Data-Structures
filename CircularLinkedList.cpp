@@ -1,53 +1,56 @@
+
 //
-// Created by Yusuf Aldaly on 4/28/2023.
+// Created by Yusuf Aldaly on 4/30/2023.
 //
 
-#include "DoublyLinkedList.h"
 #include <iostream>
+#include "CircularLinkedList.h"
+
 using namespace std;
 
-
 template <typename T>
-DoublyLinkedList<T>::DoublyLinkedList() {
+CircularLinkedList<T>::CircularLinkedList() {
     head = tail = nullptr;
     length = 0;
 }
-
-
 template <typename T>
-void DoublyLinkedList<T>::insertAtHead(T element) {
+void CircularLinkedList<T>::insertAtHead(T element) {
+    cout << "inserted at head\n";
     Node *new_node = new Node;
     new_node->data = element;
     if (length == 0) {
         head = tail = new_node;
-        new_node->next = new_node->prev = nullptr;
+        new_node->next = new_node->prev = head;
     } else {
         new_node->next = head;
-        new_node->prev = nullptr;
         head->prev = new_node;
         head = new_node;
+        head->prev = tail;
+        tail->next = head;
     }
     length++;
 }
 
 template <typename T>
-void DoublyLinkedList<T>::insertAtTail(T element) {
+void CircularLinkedList<T>::insertAtTail(T element) {
     Node *new_node = new Node;
     new_node->data = element;
     if (length == 0){
         head = tail = new_node;
-        new_node->next = new_node->prev = nullptr;
+        new_node->next = new_node->prev = head;
     } else {
-        new_node->next = nullptr;
+        new_node->next = head;
         new_node->prev = tail;
         tail->next  = new_node;
         tail = new_node;
+        head->prev = tail;
+        tail->next = head;
     }
     length++;
 }
 
 template <typename T>
-void DoublyLinkedList<T>::insertAt(T element, int index) {
+void CircularLinkedList<T>::insertAt(T element, int index) {
     if (index < 0 || index > length){
         cout << "Out Of Range";
         return;
@@ -72,25 +75,7 @@ void DoublyLinkedList<T>::insertAt(T element, int index) {
 }
 
 template <typename T>
-void DoublyLinkedList<T>::insertAfter(Node *prev_node, T data) {
-    if (prev_node == nullptr) {
-        cout << "The Given Node is NULL, Cannot add data";
-        return;
-    } else if (prev_node == tail) {
-        insertAtTail(data);
-    } else {
-        Node *new_node = new Node;
-        new_node->data = data;
-        new_node->next = prev_node->next;
-        new_node->prev = prev_node;
-        new_node->next->prev = new_node;
-        prev_node->next = new_node;
-        length++;
-    }
-}
-
-template <typename T>
-void DoublyLinkedList<T>::removeAtHead() {
+void CircularLinkedList<T>::removeAtHead() {
     if (isEmpty()){
         cout << "List is Empty";
         return;
@@ -100,14 +85,17 @@ void DoublyLinkedList<T>::removeAtHead() {
     } else {
         Node *curr = head;
         head = head->next;
-        head->prev = nullptr;
+        head->prev = tail;
+        tail->next = head;
         delete curr;
     }
     length--;
 }
 
+
+
 template <typename T>
-void DoublyLinkedList<T>::removeAtTail() {
+void CircularLinkedList<T>::removeAtTail() {
     if (isEmpty()){
         cout << "List is Empty";
         return;
@@ -117,14 +105,16 @@ void DoublyLinkedList<T>::removeAtTail() {
     } else {
         Node *curr = tail;
         tail = tail->prev;
-        tail->next = nullptr;
+        head->prev = tail;
+        tail->next = head;
         delete curr;
     }
     length--;
 }
 
+
 template <typename T>
-void DoublyLinkedList<T>::removeAt(int index) {
+void CircularLinkedList<T>::removeAt(int index) {
     if (index < 0 || index >= length){
         cout << "Out of Range";
         return;
@@ -148,8 +138,9 @@ void DoublyLinkedList<T>::removeAt(int index) {
     }
 }
 
+
 template <typename T>
-T DoublyLinkedList<T>::retrieveAt(int index) const {
+T CircularLinkedList<T>::retrieveAt(int index) const {
     if (index < 0 || index >= length) {
         cout << "Out Of range";
         return 0; /////////////////Exception handling should be added
@@ -167,8 +158,9 @@ T DoublyLinkedList<T>::retrieveAt(int index) const {
     return curr->data;
 }
 
+
 template <typename T>
-void DoublyLinkedList<T>::replaceAt(T new_element, int index) {
+void CircularLinkedList<T>::replaceAt(T new_element, int index) {
     if (index < 0 || index >= length) {
         cout << "Out Of Range";
         return;
@@ -183,20 +175,21 @@ void DoublyLinkedList<T>::replaceAt(T new_element, int index) {
 
     return;
 }
-
 template <typename T>
-bool DoublyLinkedList<T>::isExist(T element) const {
+bool CircularLinkedList<T>::isExist(T element) const {
     Node *curr = head;
-    while (curr != nullptr){
+    while (curr->next != head){
         if (curr->data == element)
             return true;
         curr = curr->next;
     }
+    if (curr->data == element)
+        return true;
+
     return false;
 }
-
 template <typename T>
-bool DoublyLinkedList<T>::isItemAtEqual(T element, int index) const {
+bool CircularLinkedList<T>::isItemAtEqual(T element, int index) const {
     if (index < 0 || index >= length) {
         cout << "Out of Range";
         return 0;
@@ -213,8 +206,9 @@ bool DoublyLinkedList<T>::isItemAtEqual(T element, int index) const {
         return false;
 }
 
+
 template <typename T>
-void DoublyLinkedList<T>::swap(int first_item_idx, int second_item_idx) {
+void CircularLinkedList<T>::swap(int first_item_idx, int second_item_idx) {
     if (first_item_idx < 0 || first_item_idx >= length
         || second_item_idx < 0 || second_item_idx >= length){
         cout << "Out Of Range";
@@ -229,6 +223,8 @@ void DoublyLinkedList<T>::swap(int first_item_idx, int second_item_idx) {
         tail->prev = nullptr;
         head = tail;
         tail = curr;
+        head->prev = tail;
+        tail->next = head;
     } else if (first_item_idx == 0) {
         Node *node2 = head;
         Node *after_head = head->next;
@@ -243,6 +239,7 @@ void DoublyLinkedList<T>::swap(int first_item_idx, int second_item_idx) {
         head->prev = node2->prev;
         node2->prev = nullptr;
         head = node2;
+        head->prev = tail;
     } else if (second_item_idx == length - 1){
         Node *node1 = head;
         Node *curr = tail->prev;
@@ -257,6 +254,7 @@ void DoublyLinkedList<T>::swap(int first_item_idx, int second_item_idx) {
         tail->prev = node1->prev;
         node1->prev = curr;
         tail = node1;
+        tail->next = head;
     } else {
         Node *node1, *node2, *curr;
         node1 = node2 = curr = head;
@@ -282,17 +280,20 @@ void DoublyLinkedList<T>::swap(int first_item_idx, int second_item_idx) {
     }
 }
 
-
 template <typename T>
-void DoublyLinkedList<T>::reverse() {
+void CircularLinkedList<T>::reverse() {
     Node *temp = nullptr;
     Node *current = head;
-    while (current != nullptr) {
+    while (current->next != head) {
         temp = current->prev;
         current->prev = current->next;
         current->next = temp;
         current = current->prev;
     }
+    temp = current->prev;
+    current->prev = current->next;
+    current->next = temp;
+    current = current->prev;
     if (temp != NULL){
         current = tail;
         tail = head;
@@ -300,52 +301,56 @@ void DoublyLinkedList<T>::reverse() {
     }
 }
 
+
 template <typename T>
-bool DoublyLinkedList<T>::isEmpty() const {
+bool CircularLinkedList<T>::isEmpty() const {
     return length == 0;
 }
 
 template <typename T>
-int DoublyLinkedList<T>::listSize() const {
+int CircularLinkedList<T>::listSize() const {
     return length;
 }
 
 template <typename T>
-void DoublyLinkedList<T>::clear() {
-    length = 0;
-    Node *curr = head;
-    while (curr != nullptr) {
-        Node *tmp = curr;
-        curr = curr->next;
-        delete tmp;
-    }
-}
-
-template <typename T>
-void DoublyLinkedList<T>::print() const {
+void CircularLinkedList<T>::print() const {
     if (isEmpty()){
         cout << "List is Empty";
         return;
     }
     Node *curr;
     curr = head;
-    while(curr != nullptr) {
+    while(curr->next != head) {
         cout << curr->data << " ";
         curr = curr->next;
     }
+    cout << curr->data;
 }
 
-
 template <typename T>
-void DoublyLinkedList<T>::printReverse() {
+void CircularLinkedList<T>::printReverse() {
     if (isEmpty()) {
         cout << "List is Empty";
     } else {
         Node *curr = tail;
-        while (curr != nullptr) {
+        while (curr->prev != tail) {
             cout << curr->data << " ";
             curr = curr->prev;
         }
+        cout << curr->data;
     }
 }
-#include "DoublyLinkedList.h"
+
+template <typename T>
+void CircularLinkedList<T>::clear() {
+    length = 0;
+    Node *curr = head;
+    while (curr->next != head) {
+        Node *tmp = curr;
+        curr = curr->next;
+        delete tmp;
+    }
+    delete curr;
+}
+
+#include "CircularLinkedList.h"

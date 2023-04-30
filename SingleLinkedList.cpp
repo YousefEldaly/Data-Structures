@@ -6,6 +6,7 @@ template <typename T>
 SingleLinkedList<T>::SingleLinkedList() {
     head = tail = nullptr;
     length = 0;
+    current_pos = 0;
 }
 
 template <typename T>
@@ -42,7 +43,7 @@ void SingleLinkedList<T>::insertAtTail(T element) {
 
 template <typename T>
 void SingleLinkedList<T>::insertAt(T element, int index) {
-    if(index < 0 || index >= length)
+    if(index < 0 || index > length)
         cout << "Out Of Range";
     else {
         Node *new_node = new Node;
@@ -318,6 +319,8 @@ void SingleLinkedList<T>::clear() {
     }
 }
 
+
+
 template <typename T>
 void SingleLinkedList<T>::print() const {
     if (isEmpty()){
@@ -333,8 +336,27 @@ void SingleLinkedList<T>::print() const {
         curr = curr->next;
     }
 }
+template <typename T>
+int SingleLinkedList<T>::currentPos() {
+    return current_pos;
+}
 
+template <typename T>
+void SingleLinkedList<T>::moveToStart() {
+    current_pos = 0;
+}
+
+template <typename T>
+void SingleLinkedList<T>::moveToEnd() {
+    current_pos = length - 1;
+}
+
+template <typename T>
+void SingleLinkedList<T>::moveToPos(int index) {
+    current_pos = index;
+}
 template <typename T>
 SingleLinkedList<T>::~SingleLinkedList(){
     clear();
 }
+
