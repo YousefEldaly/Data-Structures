@@ -20,4 +20,10 @@ bool isOperator(char c);
 
 int longestValidParentheses(string str);
 
+//------------------------------------------------------------------------------------------------------------
+//  Generate Binary Numbers from 1 to N problem
+//------------------------------------------------------------------------------------------------------------
+
+void generateBinaryIntegers(int n);
+
 #endif // LINEAR_STRUCTURES_STACK_QUEUE_IMPLEMENTAION_H

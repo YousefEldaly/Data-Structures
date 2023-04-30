@@ -1,7 +1,7 @@
 #include <iostream>
-// #include <algorithm>
 #include "stack_queue_implementation.h"
 #include "Stack.cpp"
+#include "Queue.cpp"
 using namespace std;
 
 //------------------------------------------------------------------------------------------------------------
@@ -108,4 +108,24 @@ int longestValidParentheses(string str)
     }
 
     return maxLength;
+}
+
+//------------------------------------------------------------------------------------------------------------
+//  Generate Binary Numbers from 1 to N problem
+//------------------------------------------------------------------------------------------------------------
+
+void generateBinaryIntegers(int n)
+{
+    Queue<string> q;
+    q.enqueue("1");
+
+    for (int i = 1; i <= n; i++)
+    {
+        string s = q.first();
+        cout << s << " ";
+        q.dequeue();
+
+        q.enqueue(s + "0");
+        q.enqueue(s + "1");
+    }
 }
