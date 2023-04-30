@@ -1,5 +1,5 @@
 //
-// Created by Ahmed Asharf on 4/29/2023.
+// Created by Ahmed Ashraf on 4/29/2023.
 //
 
 #ifndef LINEAR_STRUCTURES_STACK_H
