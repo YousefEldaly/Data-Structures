@@ -1,27 +1,27 @@
 //
-// Created by Yusuf Aldaly on 4/28/2023.
+// Created by Yusuf Aldaly on 4/30/2023.
 //
 
-#ifndef LINEAR_STRUCTURES_SINGLELINKEDLIST_H
-#define LINEAR_STRUCTURES_SINGLELINKEDLIST_H
+#ifndef LINEAR_STRUCTURES_CIRCULARLINKEDLIST_H
+#define LINEAR_STRUCTURES_CIRCULARLINKEDLIST_H
 
 
-
-template <typename T> class SingleLinkedList {
+template <typename T> class CircularLinkedList {
 private:
     struct Node {
         T data;
         Node *next;
+        Node *prev;
     };
     Node *head, *tail;
-    int current_pos;
     int length;
 
 public:
-    SingleLinkedList();
+    CircularLinkedList();
     void insertAtHead(T element);
     void insertAtTail(T element);
     void insertAt(T element, int index);
+    void insertAfter(Node *prev_node, T data);
     void removeAtHead();
     void removeAtTail();
     void removeAt(int index);
@@ -30,19 +30,12 @@ public:
     bool isExist(T element) const;
     bool isItemAtEqual(T element, int index) const;
     void swap(int first_item_idx, int second_item_idx);
+    void reverse();
     bool isEmpty() const;
     int listSize() const;
-    void reverse();
     void clear();
     void print() const;
-    int currentPos();
-    void moveToStart();
-    void moveToEnd();
-    void moveToPos(int index);
-
-    ~SingleLinkedList();
+    void printReverse();
 };
 
-
-
-#endif //LINEAR_STRUCTURES_SINGLELINKEDLIST_H
+#endif //LINEAR_STRUCTURES_CIRCULARLINKEDLIST_H
