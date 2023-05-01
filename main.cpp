@@ -9,6 +9,7 @@
 #include "StackProblem.cpp"
 #include "stack_queue_implementation.cpp"
 #include <vector>
+#include "MergeLists.cpp"
 #include <iostream>
 #include <String.h>
 using namespace std;
@@ -333,9 +334,201 @@ int main()
     s.clear();
 
     std::cout << s.isEmpty() << std::endl; // should print 1 (true)
-
-    return 0;
+=======
+/*
+    Stack<int> stack;
+    stack.push(40);
+    stack.push(30);
+    stack.push(60);
+    stack.push(50);
+    stack.push(70);
+    cout << "stack: ";
+    stack.print();
+    cout << endl;
+    cout << "the top of the stack: " << stack.top();
+    cout << endl;
+    cout << "check if stack is empty: " << stack.isEmpty() << endl;
+    cout << "after poping the first element: ";
+    stack.pop();
+    stack.print();
+    cout << endl;
+    cout << "the size of the stack: " << stack.stackSize() << endl;
+    cout << "the element on the top: " << stack.top() << endl;
+    cout << "after clearing the stack: ";
+    stack.clear();
+    stack.print();
+    cout << endl;
+    cout << "check if stack is empty: " << stack.isEmpty() << endl;
 */
+/*
+    DoublyLinkedList<int> list;
+    list.insertAtHead(90);
+    list.insertAtHead(90);
+    list.print();
+    cout << endl;
+    list.insertAtTail(40);
+    list.insertAtTail(30);
+    list.print();
+    cout << endl;
+    list.insertAtTail(30);
+    list.insertAtTail(30);
+    list.print();
+    cout << endl;
+    list.insertAt(50, 2);
+    list.print();
+    cout << endl;
+    list.swap(0, 6);
+    cout << "After swapping 0, 6:\n";
+    list.print();
+    cout << endl;
+    cout << "After removing at head:\n";
+    list.removeAtHead();
+    list.print();
+    cout << endl;
+    cout << "After Removing at tail:\n";
+    list.removeAtTail();
+    list.print();
+    cout << endl;
+    cout << "after removing at 3:\n";
+    list.removeAt(3);
+    list.print();
+    cout << endl;
+    cout << "List size: " << list.listSize() << endl;
+    cout << endl;
+    cout << "item at index 2: " << list.retrieveAt(2) << endl;
+    list.replaceAt(100, 2);
+    cout << "item at 2 is replaced, new at 2: " << list.retrieveAt(2) << endl;
+    cout << "is 200 Exits? " << list.isExist(200) << endl;
+    cout << "is item at index 1 = 50? " << list.isItemAtEqual(50, 1) << endl;
+    cout << "printing the list...\n";
+    list.print();
+    cout << endl;
+    list.reverse();
+    cout << "printing after reverse:\n";
+    list.print();
+    cout << endl;
+    cout << "printing after clearing:\n";
+    list.clear();
+    list.print();
+*/
+/*
+    CircularLinkedList<int> list;
+    list.insertAtHead(90);
+    list.insertAtHead(90);
+    list.print();
+    cout << endl;
+    list.insertAtTail(40);
+    list.insertAtTail(30);
+    list.print();
+    cout << endl;
+    list.insertAtTail(30);
+    list.insertAtTail(30);
+    list.print();
+    cout << endl;
+    list.insertAt(50, 2);
+    list.print();
+    cout << endl;
+    list.swap(1, 6);
+    cout << "After swapping 1, 6:\n";
+    list.print();
+    cout << endl;
+    cout << "After removing at head:\n";
+    list.removeAtHead();
+    list.print();
+    cout << endl;
+    cout << "After Removing at tail:\n";
+    list.removeAtTail();
+    list.print();
+    cout << endl;
+    cout << "after removing at 3:\n";
+    list.removeAt(3);
+    list.print();
+    cout << endl;
+    cout << "List size: " << list.listSize() << endl;
+    cout << endl;
+    cout << "item at index 2: " << list.retrieveAt(2) << endl;
+    list.replaceAt(100, 2);
+    cout << "item at 2 is replaced, new at 2: " << list.retrieveAt(2) << endl;
+    cout << "is 200 Exits? " << list.isExist(200) << endl;
+    cout << "is item at index 1 = 50? " << list.isItemAtEqual(50, 1) << endl;
+    cout << "printing the list...\n";
+    list.print();
+    cout << endl;
+    list.reverse();
+    cout << "printing after reverse:\n";
+    list.print();
+    cout << endl;
+    cout << "printing in reverse:\n";
+    list.printReverse();
+    cout << endl;
+    cout << "printing after clearing:\n";
+    list.clear();
+    list.print();
+*/
+/*
+    SingleLinkedList<int> list;
+    list.insertAtTail(0);
+    list.insertAtTail(1);
+    list.insertAtTail(0);
+    list.insertAtTail(3);
+    list.insertAtTail(0);
+    list.insertAtTail(2);
+    list.insertAtTail(2);
+    list.insertAtTail(0);
+    list.insertAtTail(2);
+    list.insertAtTail(2);
+    list.insertAtTail(2);
+    list.insertAtTail(2);
+    list.insertAtTail(2);
+    list.insertAtTail(0);
+    list.insertAtTail(2);
+    list.insertAtTail(2);
+    list.insertAtTail(0);
+
+
+    list.print();
+    cout << endl;
+    SingleLinkedList<int> combined_list1 = CombineNodesBetweenZeros(list);
+    cout << "Combined list with passing the whole list:\n";
+    combined_list1.print();
+    cout << "\n\n";
+
+    SingleLinkedList<int> combined_list3 = CombineNodesBetweenZeros<int>(list.getHeadAddress());
+    cout << "Combined list with passing the pointer to head:\n";
+    combined_list3.print();
+    cout << "\n\n";
+
+    */
+
+    SingleLinkedList<int> list1, list2, list3, merged_list;
+    list1.insertAtTail(1);
+    list1.insertAtTail(3);
+    list1.insertAtTail(5);
+    list1.insertAtTail(7);
+
+
+
+
+    list2.insertAtTail(0);
+    list2.insertAtTail(9);
+    list2.insertAtTail(10);
+    list2.insertAtTail(11);
+
+
+
+    list3.insertAtTail(2);
+    list3.insertAtTail(2);
+    list3.insertAtTail(6);
+    list3.insertAtTail(8);
+
+
+
+    SingleLinkedList<int>::Node* arr[] = {list1.getHeadAddress(), list2.getHeadAddress(), list3.getHeadAddress()};
+    merged_list = mergeSortedLists<int>(arr, 3);
+    merged_list.print();
+
+
+
     //----------------------------------------------(Problem) Testing sorting Queue--------------------------------------------
     Queue<int> q1;
     q1.enqueue(3);
@@ -406,4 +599,6 @@ int main()
         cout << endl;
         cout << "--------------------------------------------" << endl;
     }
+    return 0;
 }
+

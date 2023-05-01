@@ -8,16 +8,12 @@
 
 
 template <typename T> class SingleLinkedList {
-private:
+public:
     struct Node {
         T data;
         Node *next;
     };
-    Node *head, *tail;
-    int current_pos;
-    int length;
 
-public:
     SingleLinkedList();
     void insertAtHead(T element);
     void insertAtTail(T element);
@@ -34,6 +30,7 @@ public:
     int listSize() const;
     void reverse();
     void clear();
+    Node* getHeadAddress() const;
     void print() const;
     int currentPos();
     void moveToStart();
@@ -41,6 +38,12 @@ public:
     void moveToPos(int index);
 
     ~SingleLinkedList();
+
+private:
+    Node *head, *tail;
+    int current_pos;
+    int length;
+
 };
 
 

@@ -202,7 +202,6 @@ bool SingleLinkedList<T>::isItemAtEqual(T element, int index) const {
 
 template <typename T>
 void SingleLinkedList<T>::swap(int first_item_idx, int second_item_idx) {
-    cout << "\n\n the length is: " << length << endl << endl;
     if (first_item_idx < 0 || first_item_idx >= length
         || second_item_idx < 0 || second_item_idx >= length){
         cout << "Out Of Range";
@@ -319,6 +318,11 @@ void SingleLinkedList<T>::clear() {
     }
 }
 
+template <typename T>
+typename SingleLinkedList<T>::Node* SingleLinkedList<T>::getHeadAddress() const {
+    Node* head_node = head;
+    return head_node;
+}
 
 
 template <typename T>
