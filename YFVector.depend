@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1671633060 source:d:\study\level 2\oop\assignments\assignment3\fatma2\yfvector\main.cpp
+	<bits/stdc++.h>
+	"YFVector.cpp"
+	"exceptions.h"
+
+1672343654 d:\study\level 2\oop\assignments\assignment3\fatma2\yfvector\yfvector.cpp
+	"YFVector.h"
+	"exceptions.h"
+
+1671625003 d:\study\level 2\oop\assignments\assignment3\fatma2\yfvector\yfvector.h
+	<bits/stdc++.h>
+
+1671133062 d:\study\level 2\oop\assignments\assignment3\fatma2\yfvector\exceptions.h
+	<stdexcept>
+
+1671632812 source:d:\study\level 2\oop\assignments\assignment3\fatma2\yfvector\yfvector.cpp
+	"YFVector.h"
+	"exceptions.h"
+
