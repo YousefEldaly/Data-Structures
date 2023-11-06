@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<<< HEAD:Custom-Vector/.idea/modules.xml
       <module fileurl="file://$PROJECT_DIR$/.idea/Custom-Vector.iml" filepath="$PROJECT_DIR$/.idea/Custom-Vector.iml" />
+========
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/.idea/Data-Structures.iml" filepath="$PROJECT_DIR$/.idea/Data-Structures.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/Trees.iml" filepath="$PROJECT_DIR$/.idea/Trees.iml" />
+>>>>>>> SomeTrees/master
+>>>>>>>> 91d9a22 (replaced the BST collection with an error-free one):.idea/modules.xml
     </modules>
   </component>
 </project>
