@@ -1,0 +1,13 @@
+# ninja log v5
+6	599	7058553474434607	CMakeFiles/Trees.dir/Student.cpp.obj	50984ccfe35d51f
+3	498	7058574883078342	CMakeFiles/Trees.dir/main.cpp.obj	13d495911f4c51a5
+9	791	7058553476355876	CMakeFiles/Trees.dir/BST.cpp.obj	599ed61bbefea916
+498	602	7058574884132365	Trees.exe	de7a203b17ea6458
+8	637	7058573533172413	CMakeFiles/Trees.dir/AVL.cpp.obj	2b8f9d1a471a2ffc
+6	654	7210055267249802	CMakeFiles/Trees.dir/Student.cpp.obj	17a1c2d24b9a0109
+23	860	7210055269237956	CMakeFiles/Trees.dir/BST.cpp.obj	6e0e2b043cc2ffef
+29	871	7210055269337689	CMakeFiles/Trees.dir/AVL.cpp.obj	9deb6b0524ee877f
+3	930	7210055270130687	CMakeFiles/Trees.dir/main.cpp.obj	5043f29c23df8ca
+11	960	7210055270429906	CMakeFiles/Trees.dir/MaxHeap.cpp.obj	258740d2ec5656eb
+16	1071	7210055271525567	CMakeFiles/Trees.dir/MinHeap.cpp.obj	2209fa0d2b88be22
+1071	1223	7210055273034684	Trees.exe	33d7402176c271f0
