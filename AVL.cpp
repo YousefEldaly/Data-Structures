@@ -68,7 +68,7 @@ void AVL::rotateWithRightChild(AvlNode *&node2) {
 
 void AVL::doubleWithLeftChild(AvlNode *&node3) {
     rotateWithRightChild(node3->left);
-    rotateWithLeftChild(node3->left);
+    rotateWithLeftChild(node3);
 
 }
 void AVL::doubleWithRightChild(AvlNode *&node3) {
