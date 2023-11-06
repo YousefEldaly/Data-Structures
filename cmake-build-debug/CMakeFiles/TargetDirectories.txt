@@ -1,3 +1,0 @@
-D:/Study/Level 2/Data_Stuctures/Assignments/Assignment3/Data_Structures_A3/cmake-build-debug/CMakeFiles/Trees.dir
-D:/Study/Level 2/Data_Stuctures/Assignments/Assignment3/Data_Structures_A3/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Study/Level 2/Data_Stuctures/Assignments/Assignment3/Data_Structures_A3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
