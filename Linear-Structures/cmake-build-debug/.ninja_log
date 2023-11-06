@@ -1,0 +1,15 @@
+# ninja log v5
+7	775	7210035256752484	CMakeFiles/Linear_Structures.dir/ArrayList.cpp.obj	2e756d44f5b730e3
+1073	1811	7210035267939100	CMakeFiles/Linear_Structures.dir/Stack.cpp.obj	a97e8bfbe4905532
+0	782	7210035257013847	CMakeFiles/Linear_Structures.dir/CircularLinkedList.cpp.obj	f5fd4e204a80825a
+18	1080	7210035257265992	CMakeFiles/Linear_Structures.dir/CombineNodesBetweenZeros.cpp.obj	bfdb7049c2d8a302
+12	1073	7210035257064362	CMakeFiles/Linear_Structures.dir/DoublyLinkedList.cpp.obj	660999ed233d2940
+776	1808	7210035266647354	CMakeFiles/Linear_Structures.dir/Queue.cpp.obj	9b8e6a634349c5f2
+782	1741	7210035265644790	CMakeFiles/Linear_Structures.dir/SingleLinkedList.cpp.obj	f18efeb3293fadfd
+1741	2164	7210035271939858	CMakeFiles/Linear_Structures.dir/StackProblem.cpp.obj	79b21be9dde6f55b
+32	2386	7210035274154260	CMakeFiles/Linear_Structures.dir/MergeLists.cpp.obj	eba72f747619d40e
+7	2023	7210040102756692	CMakeFiles/Linear_Structures.dir/main.cpp.obj	b70c393b9db9790c
+14	865	7210040091156794	CMakeFiles/Linear_Structures.dir/stack_queue_implementation.cpp.obj	5d95e1207c1b3fe8
+3	279	7210041609742688	Linear_Structures.exe	ba11faea81c7316b
+5	1533	7210042279549026	CMakeFiles/Linear_Structures.dir/main.cpp.obj	b70c393b9db9790c
+1533	1663	7210042280873319	Linear_Structures.exe	ba11faea81c7316b

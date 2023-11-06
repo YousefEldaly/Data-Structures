@@ -5,6 +5,7 @@
 
 #ifndef LINEAR_STRUCTURES_STACK_QUEUE_IMPLEMENTAION_H
 #define LINEAR_STRUCTURES_STACK_QUEUE_IMPLEMENTAION_H
+using namespace std;
 
 //------------------------------------------------------------------------------------------------------------
 // Convert the Infix Expression to Postfix Expression problem
