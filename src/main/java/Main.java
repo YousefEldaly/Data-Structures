@@ -7,9 +7,12 @@ public class Main {
         redBlackTree.insert(5);
         redBlackTree.insert(3);
         redBlackTree.insert(100);
-        redBlackTree.insert(10);
-        redBlackTree.insert(3);
-
         redBlackTree.printTree();
+        System.out.println("\n\n");
+        redBlackTree.deleteNode(4);
+        //redBlackTree.deleteNode(10);
+        //redBlackTree.deleteNode(100);
+        redBlackTree.printTree();
+
     }
 }

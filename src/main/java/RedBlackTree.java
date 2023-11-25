@@ -120,6 +120,137 @@ public class RedBlackTree {
         root.color = BLACK;
     }
 
+    public void deleteNode(int data) {
+        deleteNode(this.root, data);
+    }
+
+    private void deleteNode(Node node, int data) {
+        Node z = TNULL;
+        while (node != TNULL) {
+            if (node.data == data) {
+                z = node;
+            }
+
+            if (node.data <= data) {
+                node = node.right;
+            } else {
+                node = node.left;
+            }
+        }
+
+        if (z == TNULL) {
+            System.out.println("Data not found!");
+            return;
+        }
+
+        Node x, y;
+        y = z;
+        int yOriginalColor = z.color;
+        if (z.left == TNULL) {
+            x = z.right;
+            transplant(z, z.right);
+        } else if (z.right == TNULL) {
+            x = z.left;
+            transplant(z, z.left);
+        } else {
+            y = minimum(z.right);
+            yOriginalColor = y.color;
+            x = y.right;
+            if (y.parent == z) {
+                x.parent = y;
+            } else {
+                transplant(y, y.right);
+                y.right = z.right;
+                y.right.parent = y;
+            }
+            transplant(z, y);
+            y.left = z.left;
+            y.left.parent = y;
+            y.color = z.color;
+        }
+        if (yOriginalColor == BLACK) {
+            RBDeleteFixup(x);
+        }
+    }
+
+    private void RBDeleteFixup(Node x) {
+        Node w;
+        while (x != root & x.color == BLACK) {
+            if (x == x.parent.left) {
+                w = x.parent.right;
+                if (w.color == RED) {
+                    w.color = BLACK;
+                    x.parent.color = RED;
+                    leftRotate(x.parent);
+                    w = x.parent.right;
+                }
+                if (w.left.color == BLACK & w.right.color == BLACK) {
+                    w.color = RED;
+                    x = x.parent;
+                } else {
+                    if (w.right.color == BLACK) {
+                        w.left.color = BLACK;
+                        w.color = RED;
+                        rightRotate(w);
+                        w = x.parent.right;
+                    }
+                    w.color = x.parent.color;
+                    x.parent.color = BLACK;
+                    w.right.color = BLACK;
+                    leftRotate(x.parent);
+                    x = root;
+                }
+
+            } else {
+                w = x.parent.left;
+                if (w.color == RED) {
+                    w.color = BLACK;
+                    x.parent.color = RED;
+                    rightRotate(x.parent);
+                    w = x.parent.left;
+                }
+
+                if (w.right.color == BLACK && w.right.color == BLACK) {
+                    w.color = RED;
+                    x = x.parent;
+                } else {
+                    if (w.left.color == BLACK) {
+                        w.right.color = BLACK;
+                        w.color = RED;
+                        leftRotate(w);
+                        w = x.parent.left;
+                    }
+
+                    w.color = x.parent.color;
+                    x.parent.color = 0;
+                    w.left.color = 0;
+                    rightRotate(x.parent);
+                    x = root;
+                }
+            }
+        }
+        x.color = BLACK;
+    }
+
+    private void transplant(Node oldNode, Node transNode){
+        if (oldNode.parent == TNULL) {
+            root = transNode;
+        } else if (oldNode == oldNode.parent.left) {
+            oldNode.parent.left = transNode;
+        } else {
+            oldNode.parent.right = transNode;
+        }
+        transNode.parent = oldNode.parent;
+
+    }
+
+    private Node minimum(Node node) {
+        while (node.left != TNULL) {
+            node = node.left;
+        }
+        return node;
+    }
+
     private void leftRotate(Node x) {
         Node y = x.right;
         x.right = y.left;
